@@ -1,0 +1,125 @@
+body {
+    background-color: white;
+    color: black;
+}
+
+.wd-back-link {
+    color: #000;
+    text-decoration: none;
+}
+
+.wd-half-tweet {
+    width: 40%;
+}
+
+.wd-border {
+    border-color: lightgray;
+    border: 2px;
+}
+
+.wd-header-font {
+    margin: 30px;
+    font-size: larger;
+}
+
+.wd-dots {
+    float: right;
+    font-size: larger;
+}
+
+.wd-gray-text {
+    color: #626161;
+    font-weight: normal;
+}
+
+.wd-profile-photo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.wd-tweet-container {
+    display: flex;
+    align-items: flex-start;
+    margin: 30px;
+}
+
+.wd-tweet-content {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+}
+
+.wd-twitter-handle {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.wd-tweet-text {
+    font-size: 16px;
+    color: #000000;
+    margin-top: 10px;
+}
+
+.wd-content-box {
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    display: inline-block;
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+.wd-photo-container {
+    width: 490px;
+    height: 300px;
+    border: 1px solid black;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    overflow: hidden;
+}
+
+.wd-photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.wd-text-content {
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.wd-head-text {
+    font-weight: bold;
+}
+
+.wd-interactions {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.wd-interaction-item {
+    margin-right: 40px;
+    color: #626161;
+    display: flex;
+    align-items: center;
+}
+
+.wd-interaction-item i {
+    margin-right: 5px;
+}
+
+.wd-dots-small {
+    display: inline-block;
+    margin-left: auto;
+    color: #232222;
+}
