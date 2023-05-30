@@ -1,0 +1,6 @@
+[
+    { "title": "Buy car",          "status": "CANCELED",     "done": true   },
+    { "title": "Pickup the guns",   "status": "IN PROGRESS",  "done": false  },
+    { "title": "Walk the father",      "status": "DEFERRED",     "done": false  }
+   ]
+   
