@@ -9,6 +9,7 @@ const NavigationSidebar = () => {
   const styles = `
     .wd-icon {
       margin-right: 8px;
+      font-size:20px;
     }
   `;
   
