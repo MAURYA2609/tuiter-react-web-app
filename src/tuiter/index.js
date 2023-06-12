@@ -7,15 +7,22 @@ import ExploreScreen from "./explore-screen/explore-screen";
 import MessagesScreen from "./messages-screen";
 import BookmarksScreen from "./bookmarks-screen";
 import ListsScreen from "./lists-screen";
-import ProfileScreen from "./profile-screen";
 import MoreScreen from "./more-screen";
 import WhoToFollowList from "./who-to-follow-list";
 import whoReducer from "./reducers/who-reducer";
 import tuitsReducer from "./tuits/tuits-reducer";
 import { configureStore } from '@reduxjs/toolkit';
 import {Provider} from "react-redux";
+import ProfileScreen from "./user/profile-screen";
+import LoginScreen from "./user/login-screen";
+import RegisterScreen from "./user/register-screen";
+import authReducer from "./reducers/auth-reducer";
+
 const store = configureStore(
-  {reducer: {who: whoReducer, tuits : tuitsReducer}});
+  {reducer: {
+    who: whoReducer, 
+    tuits : tuitsReducer,
+    user:  authReducer}});
 
 function Tuiter() {
   return (
@@ -36,6 +43,9 @@ function Tuiter() {
             <Route path="/lists" element={<ListsScreen />} />
             <Route path="/profile" element={<ProfileScreen />} />
             <Route path="/more" element={<MoreScreen />} />
+            <Route path="/login"    element={<LoginScreen    />} />
+           <Route path="/register" element={<RegisterScreen />} />
+           <Route path="/profile"  element={<ProfileScreen  />} />
           </Routes>
         </div>
         <div className="d-none d-lg-block col-lg-3 col-xl-3 col-xxl-3">

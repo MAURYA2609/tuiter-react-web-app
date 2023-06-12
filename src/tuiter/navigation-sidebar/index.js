@@ -1,9 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { AiFillHome, AiOutlineBorderlessTable, AiFillBell, AiFillMail, AiFillPushpin, 
           AiOutlineUnorderedList, AiFillIdcard, AiOutlineEllipsis } from "react-icons/ai";
 
 const NavigationSidebar = () => {
+  const { currentUser } = useSelector((state) => state.user);
   const { pathname } = useLocation();
   const [ignore, tuiter, active] = pathname.split("/");
   const styles = `
@@ -48,6 +50,9 @@ const NavigationSidebar = () => {
         <AiOutlineEllipsis className="wd-icon"/>
         <span className="d-none d-xl-inline">More</span>
       </Link>
+      {!currentUser && <Link className="list-group-item" to="/tuiter/login">   <span className="d-none d-xl-inline">Login</span>  </Link>}
+     {!currentUser && <Link className="list-group-item" to="/tuiter/register"><span className="d-none d-xl-inline">Register</span></Link>}
+     { currentUser && <Link className="list-group-item" to="/tuiter/profile"> <span className="d-none d-xl-inline">Profile</span> </Link>}
     </div>
   );
 };
