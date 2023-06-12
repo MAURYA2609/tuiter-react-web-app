@@ -1,61 +1,46 @@
-import React from "react";
-import { FaRegComment, FaRetweet, FaHeart, FaThumbsDown } from "react-icons/fa";
-import { FiShare } from "react-icons/fi";
+import { FaHeart, FaRegHeart, FaRegComment, FaRetweet, FaShare } from "react-icons/fa";
+import { AiFillDislike } from "react-icons/ai";
+import "./index.css";
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleLike } from '../reducers/tuits-reducer';
 import { updateTuitThunk } from "../services/tuits-thunks";
-import { useDispatch } from "react-redux";
 
-const TuitStat = ({
-  tuit = {
-    _id: 123,
-    liked: true,
-    unliked:false,
-    replies: 123,
-    retuits: 432,
-    likes: 2345,
-  },
-}) => {
-  const dispatch = useDispatch();
-  return (
-    <li className="list-group-item border-0 mt-1">
-      <div className="row">
-        <div className="col-3">
-          <span className="fw-bolder">
-            <FaRegComment />
-          </span>{" "}
-          {tuit.replies}
+const TuitStat = (props) => {
+
+    const tuit = useSelector(state => state.tuits.tuits);
+    const dispatch = useDispatch();
+
+
+    return (
+        <div className="container">
+            <div className="row wd-stat-icons-list">
+                <div className="col">
+                    <FaRegComment/>
+                    <span className="wd-stat-font">{props.tuit.replies}</span>
+                </div>
+                <div className="col">
+                    <FaRetweet/>
+                    <span className="wd-stat-font">{props.tuit.retuits}</span>
+                </div>
+                <div className="col">
+                    {props.tuit.liked ? 
+                        <FaHeart className="text-danger"/> : 
+                        <FaRegHeart  onClick={() =>
+                            dispatch(updateTuitThunk({ ...props.tuit, likes: props.tuit.likes + 1, liked: !props.tuit.liked }))}/>
+                        }
+                    <span className="wd-stat-font">{props.tuit.likes}</span>
+                </div>
+                <div className="col">
+                    <AiFillDislike onClick={() =>
+                            dispatch(updateTuitThunk({ ...props.tuit, dislikes: props.tuit.dislikes + 1 }))}/>
+                    <span className="wd-stat-font">{props.tuit.dislikes}</span>
+                </div>
+                <div className="col">
+                    <FaShare/>
+                </div>
+            </div>
         </div>
-        <div className="col-3">
-          <span className="fw-bolder">
-            <FaRetweet />
-          </span>{" "}
-          {tuit.retuits}
-        </div>
-        <div className="col-5 d-flex align-items-center">
-          <FaHeart
-            className="text-danger me-2"
-            onClick={() =>
-              dispatch(updateTuitThunk({ ...tuit, likes: tuit.likes + 1 }))
-            }
-          />
-          <span>{tuit.likes}</span>
-          <FaThumbsDown
-            className="text-primary me-2"
-            onClick={() =>
-              dispatch(
-                updateTuitThunk({ ...tuit, dislikes: tuit.dislikes + 1 })
-              )
-            }
-          />
-          <span>{tuit.dislikes}</span>
-        </div>
-        <div className="col-1 d-flex align-items-center">
-          <span>
-            <FiShare />
-          </span>
-        </div>
-      </div>
-    </li>
-  );
-};
+    );
+}
 
 export default TuitStat;
