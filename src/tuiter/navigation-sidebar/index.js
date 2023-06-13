@@ -42,10 +42,6 @@ const NavigationSidebar = () => {
         <AiOutlineUnorderedList className="wd-icon"/>
         <span className="d-none d-xl-inline">Lists</span>
       </Link>
-      <Link to={"/tuiter/profile "} className={`list-group-item ${active === "profile" ? "active" : ""}`}>
-        <AiFillIdcard className="wd-icon"/>
-        <span className="d-none d-xl-inline">Profile</span>
-      </Link>
       <Link to={"/tuiter/more "} className={`list-group-item ${active === "more" ? "active" : ""}`}>
         <AiOutlineEllipsis className="wd-icon"/>
         <span className="d-none d-xl-inline">More</span>
